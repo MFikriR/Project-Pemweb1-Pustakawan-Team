@@ -1,0 +1,187 @@
+.latar{
+    background-image: url(perpustakaan.jpeg);
+    color: white;
+    position: absolute;
+    width: 1471px;
+    height: 1084px;
+    left: -31px;
+    top: 0px;
+
+}
+.kotak{
+    position: absolute;
+    width: 1026px;
+    height: 659px;
+    left: 207px;
+    top: 227px;
+    background: #FFFFFF;
+    border-radius: 15px;
+}
+.avatar{
+    position: absolute;
+    width: 115px;
+    height: 111px;
+    left: 405px;
+    top: 337px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.9);
+    border-radius: 59.5px;
+}
+.kepala{
+    position: absolute;
+    width: 47.6px;
+    height: 47.6px;
+    left: 35.7px;
+    top: 19.83px;
+    background: #3D64B5;
+    border-radius: 47.6px;
+}
+.badan{
+    position: absolute;
+    width: 178.5px;
+    height: 50.5px;
+    left: -29.75px;
+    top: 79.33px;
+    background: #3D64B5;
+    border-radius: 178.5px;
+}
+.userName{
+    box-sizing: border-box;
+    position: absolute;
+    width: 359px;
+    height: 66px;
+    left: 802px;
+    top: 448px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 40px;
+}
+.orang{
+    position: absolute;
+    left: 75.76%;
+    right: 22.01%;
+    top: 42.53%;
+    bottom: 53.78%;
+    background: cadetblue;
+}
+.password{
+    box-sizing: border-box;
+    position: absolute;
+    width: 359px;
+    height: 66px;
+    left: 802px;
+    top: 538px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 40px;
+}
+.login{
+    position: absolute;
+    width: 100px;
+    height: 46px;
+    left: 934px;
+    top: 387px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 35.2122px;
+    line-height: 52px;
+    color: #000000;
+}
+.nameUser{
+    position: absolute;
+    width: 111px;
+    height: 27.35px;
+    left: 834px;
+    top: 467px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20.6384px;
+    line-height: 30px;
+    color: gray;
+}
+.pw{
+    position: absolute;
+    width: 111px;
+    height: 27.35px;
+    left: 834px;
+    top: 560px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20.6384px;
+    line-height: 30px;
+    color: gray; 
+}
+.garis{
+    position: absolute;
+    width: 352px;
+    height: 0px;
+    left: 809px;
+    top: 664.24px;
+    border: 1px solid #000000;
+}
+.log{
+    box-sizing: border-box;
+    position: absolute;
+    width: 359px;
+    height: 66px;
+    left: 802px;
+    top: 691px;
+    background: #BEDCFF;
+    border: 1px solid #000000;
+    border-radius: 40px;
+}
+.loggin{
+    position: absolute;
+    width: 94px;
+    height: 33.52px;
+    left: 952px;
+    top: 707px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25.6585px;
+    line-height: 38px;
+    color:gray;
+}
+.sistemInformasi{
+    position: absolute;
+    width: 311.43px;
+    height: 51.22px;
+    left: 307px;
+    top: 471px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 37.1739px;
+    line-height: 54px;
+    color: #000000;
+}
+.perpustakaan{
+    position: absolute;
+    width: 422.13px;
+    height: 68.57px;
+    left: 255px;
+    top: 522px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 49.5652px;
+    line-height: 73px;
+    color: #000000;
+}
+.pendidikanKomputer{
+    position: absolute;
+    width: 353.57px;
+    height: 46.26px;
+    left: 289px;
+    top: 591px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 33.0435px;
+    line-height: 48px;
+    color: #000000;
+}
