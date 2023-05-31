@@ -87,6 +87,7 @@
     font-size: 35.2122px;
     line-height: 52px;
     color: #000000;
+
 }
 .nameUser{
     position: absolute;
@@ -146,6 +147,11 @@
     line-height: 38px;
     color:gray;
 }
+
+.log:hover{
+    background-color: #3D64B5;
+    color: aqua;
+}
 .sistemInformasi{
     position: absolute;
     width: 311.43px;
@@ -184,4 +190,9 @@
     font-size: 33.0435px;
     line-height: 48px;
     color: #000000;
+}
+
+.brusz{
+    background-color: skyblue;
+    color: skyblue;
 }
