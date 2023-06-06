@@ -68,12 +68,10 @@
     box-sizing: border-box;
     position: absolute;
     width: 359px;
-    height: 66px;
-    left: 802px;
-    top: 538px;
+    height: 60px;
+    left: 800px;
+    top: 545px;
     background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 40px;
 }
 .login{
     position: absolute;
@@ -87,13 +85,13 @@
     font-size: 35.2122px;
     line-height: 52px;
     color: #000000;
-
 }
+
 .nameUser{
     position: absolute;
     width: 111px;
     height: 27.35px;
-    left: 834px;
+    left: 800px;
     top: 467px;
     font-family: 'Hanuman';
     font-style: normal;
