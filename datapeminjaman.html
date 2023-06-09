@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data</title>
+    <link rel="stylesheet" href="dtpeminjaman.css">
+</head>
+<body>
+    <h1>TAMBAH PEMINJAMAN</h1>
+
+
+    <div class="tambah-data">
+        <button class="btn" id="btnTambah">Tambah Data</button>
+    </div>
+
+
+    <div id="tabel">
+        <table id="tabel-main">
+            <thead>
+                <tr>
+                    <th>ID Peminjaman</th>
+                    <th>ID Buku</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Tanggal Peminjaman</th>
+                    <th>Tanggal Pengembalian</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+
+            <div class="inputModal">
+                <h3 id="judulModal">Tambah Data</h3>
+                <table>
+                    <tr>
+                        <td><label for="nim">NIM</label></td>
+                        <td><input type="text" name="nim" id="nim"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nama">Nama</label></td>
+                        <td><input type="text" name="nama" id="nama"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tanggalpeminjaman">Tanggal Peminjaman</label></td>
+                        <td><input type="text" name="tanggalpeminjaman" id="tanggalpeminjaman"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tanggalpengembalian">Tanggal Pengembalian</label></td>
+                        <td><input type="text" name="tanggalpengembalian" id="tanggalpengembalian"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="Submit" name="submit" id="submit" class="btn"></td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Edit Data -->
+    <div id="editModal" class="modal">
+
+
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+
+            <div class="inputModal">
+                <h3 id="judulModal">Tambah Data</h3>
+                <table>
+                    <tr>
+                        <td><label for="nim">NIM</label></td>
+                        <td><input type="text" name="nim" id="nimEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nama">Nama</label></td>
+                        <td><input type="text" name="nama" id="namaEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tanggalpeminjaman">Tanggal Peminjaman</label></td>
+                        <td><input type="text" name="tanggalpeminjaman" id="tanggalpeminjamanEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tanggalpengembalian">Tanggal Pengembalian</label></td>
+                        <td><input type="text" name="tanggalpengembalian" id="tanggalpengembalianEdit"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="Submit" name="submit" id="submitEdit" class="btn"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="jvpeminjaman.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        import { getDatabase, ref, set, push, get, child, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCQ-eOx4bmOGYEGtw1DxLwO8KeQIkZD0E4",
+          authDomain: "projek-pemweb.firebaseapp.com",
+          databaseURL: "https://projek-pemweb-default-rtdb.firebaseio.com",
+          projectId: "projek-pemweb",
+          storageBucket: "projek-pemweb.appspot.com",
+          messagingSenderId: "180846166223",
+          appId: "1:180846166223:web:3ba5c51942d5d7a162f7ba"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // inisialisasi tiap inputan
+        let nim = document.getElementById('nim');
+        let nama = document.getElementById('nama');
+        let tanggalpeminjaman = document.getElementById('tanggalpeminjaman');
+        let tanggalpengembalian = document.getElementById('tanggalpengembalian');
+        var selectedKey;
+        var editModal = document.getElementById('editModal');
+
+
+        // kerangka isi tbody
+        var tbody = document.getElementById('data');
+        var no = 0;
+
+
+        function addItemToTable(key, nim, nama, tanggalpeminjaman, tanggalpengembalian){
+            let trow = document.createElement('tr');
+
+
+            let table =` 
+                        <td>${++id}</td>
+                        <td>${nim}</td>
+                        <td>${nama}</td>
+                        <td>${tanggalpeminjaman}</td>
+                        <td>${tanggalpengembalian}</td>
+                `
+            
+            let td = document.createElement('td')
+
+
+            let btnEdit = document.createElement('button');
+            let t = document.createTextNode('Edit');
+            btnEdit.id = 'btnEdit';
+            btnEdit.classList.add('btn')
+            btnEdit.value = key
+            btnEdit.appendChild(t);
+            btnEdit.addEventListener('click', ()=>{
+                editModal.style.display = 'block';
+                selectedKey = btnEdit.value;
+            })
+            btnEdit.onclick = function(){showDataEdit(btnEdit.value)};
+            
+            let btnHapus = document.createElement('button');
+            t = document.createTextNode('Hapus');
+            btnHapus.id = 'btnHapus';
+            btnHapus.classList.add('btn')
+            btnHapus.value = key;
+            btnHapus.appendChild(t);
+            btnHapus.addEventListener('click', (key)=>{
+                hapusData(btnEdit.value)
+            })
+
+
+            trow.innerHTML = table;
+            td.appendChild(btnEdit);
+            td.appendChild(btnHapus);
+            trow.appendChild(td);
+
+
+            tbody.appendChild(trow);
+        }
+
+
+        function AddAllItemToTable(Mahasiswa){
+            no = 0;
+            tbody.innerHTML='';
+            Mahasiswa.forEach(element => {
+                addItemToTable(element.key, element.nim, element.nama, element.tanggalpeminjaman, element.tanggalpengembalian);
+            })
+        }
+
+
+        // tambah data
+        function tambahData(){
+            let data = {
+                nim: nim.value,
+                nama: nama.value,
+                tanggalpeminjaman: tanggalpeminjaman.value,
+                tanggalpengembalian: tanggalpengembalian.value
+            };
+
+
+            push(ref(database, 'mahasiswa'), data)
+            .then(()=>{
+                nim.value = '';
+                nama.value = '';
+                tanggalpeminjaman.value = '';
+                tanggalpengembalian.value = '';
+                alert('Data berhasil ditambahkan');
+            })
+            .catch((error)=>{
+                alert('Data gagal ditambahkan');
+            })
+        }
+
+
+        // assign button
+        document.getElementById('submit').addEventListener('click', tambahData);
+
+        // get data realtime
+        function getAllDataRealTime(){
+            const dbRef = ref(database, 'mahasiswa');
+            var tabel = document.getElementById('tabel');
+
+
+            onValue(dbRef, (snapshot)=>{
+                var mahasiswa = []
+                snapshot.forEach(childSnapshot =>{
+                    let temp = childSnapshot.val();
+                    temp['key'] = childSnapshot.key;
+                    mahasiswa.push(temp);
+                });
+            AddAllItemToTable(mahasiswa);
+            })
+        }
+        window.onload = getAllDataRealTime();
+
+        // update data
+        var submitEdit = document.getElementById('submitEdit');
+        submitEdit.onclick = function(){updateData(selectedKey)};
+        
+        function updateData(id){
+            let data = {
+                nim: nimEdit.value,
+                nama: namaEdit.value,
+                tanggalpeminjaman: tanggalpeminjamanEdit.value,
+                tanggalpengembalian: tanggalpengembalianEdit.value
+            };
+
+
+            update(ref(database, 'mahasiswa/'+id), data)
+            .then(()=>{
+                nimEdit.value = '';
+                namaEdit.value = '';
+                tanggalpeminjamanEdit.value = '';
+                tanggalpengembalianEdit.value = '';
+                editModal.style.display = 'none'
+                alert('Data berhasil diupdate');
+            })
+            .catch((error)=>{
+                alert('Data gagal ditambahkan');
+            });
+        }
+
+         // hapus data
+         function hapusData(id){
+            remove(ref(database, 'mahasiswa/'+id))
+            .then(()=>{
+                alert('Data berhasil dihapus')
+            })
+            .catch((error)=>{
+                alert('Data gagal dihapus');
+            });
+        }
+
+      </script>
