@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplikasi Perpustakaan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            padding: 6px;
+            width: 250px;
+        }
+
+        input[type="submit"] {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aplikasi Perpustakaan</h1>
+
+    <h2>Tambah Buku</h2>
+    <form id="formTambahBuku">
+        <label for="judul">Judul Buku:</label>
+        <input type="text" id="judul" name="judul" required>
+
+        <label for="pengarang">Pengarang:</label>
+        <input type="text" id="pengarang" name="pengarang" required>
+
+        <input type="submit" value="Tambahkan Buku">
+    </form>
+
+    <h2>Daftar Buku</h2>
+    <table id="daftarBuku">
+        <thead>
+            <tr>
+                <th>Judul Buku</th>
+                <th>Pengarang</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Isi tabel akan ditambahkan melalui JavaScript -->
+        </tbody>
+    </table>
+
+    <h2>Pinjam Buku</h2>
+    <form id="formPinjamBuku">
+        <label for="judul_pinjam">Judul Buku:</label>
+        <input type="text" id="judul_pinjam" name="judul_pinjam" required>
+
+        <input type="submit" value="Pinjam">
+    </form>
+
+    <h2>Kembalikan Buku</h2>
+    <form id="formKembalikanBuku">
+        <label for="judul_kembali">Judul Buku:</label>
+        <input type="text" id="judul_kembali" name="judul_kembali" required>
+
+        <input type="submit" value="Kembalikan">
+    </form>
+
+    <script>
+        // Data buku
+        var buku = [];
+
+        // Function untuk menambah buku
+        function tambahBuku(event) {
+            event.preventDefault();
+            var form = document.getElementById("formTambahBuku");
+            var judul = form.judul.value;
+            var pengarang = form.pengarang.value;
+
+            // Tambahkan buku ke dalam array
+            buku.push({ judul: judul, pengarang: pengarang, status: "Tersedia" });
+
+            // Reset form
+            form.reset();
+
+            // Perbarui tampilan daftar buku
+            tampilkanDaftarBuku();
+        }
+
+        // Function untuk menampilkan daftar buku
+        function tampilkanDaftarBuku() {
+            var table = document.getElementById("daftarBuku");
+            var tbody = table.getElementsByTagName("tbody")[0];
+            tbody.innerHTML = "";
+
+            // Tampilkan buku dalam tabel
+            for (var i = 0; i < buku.length; i++) {
+                var row = tbody.insertRow();
+                var judulCell = row.insertCell(0);
+                var pengarangCell = row.insertCell(1);
+                var statusCell = row.insertCell(2);
+
+                judulCell.textContent = buku[i].judul;
+                pengarangCell.textContent = buku[i].pengarang;
+                statusCell.textContent = buku[i].status;
+            }
+        }
+
+        // Function untuk meminjam buku
+        function pinjamBuku(event) {
+            event.preventDefault();
+            var form = document.getElementById("formPinjamBuku");
+            var judulPinjam = form.judul_pinjam.value;
+
+            // Cari buku berdasarkan judul
+            for (var i = 0; i < buku.length; i++) {
+                if (buku[i].judul === judulPinjam && buku[i].status === "Tersedia") {
+                    buku[i].status = "Terpinjam";
+                    break;
+                }
+            }
+
+            // Reset form
+            form.reset();
+
+            // Perbarui tampilan daftar buku
+            tampilkanDaftarBuku();
+        }
+
+        // Function untuk mengembalikan buku
+        function kembalikanBuku(event) {
+            event.preventDefault();
+            var form = document.getElementById("formKembalikanBuku");
+            var judulKembali = form.judul_kembali.value;
+
+            // Cari buku berdasarkan judul
+            for (var i = 0; i < buku.length; i++) {
+                if (buku[i].judul === judulKembali && buku[i].status === "Terpinjam") {
+                    buku[i].status = "Tersedia";
+                    break;
+                }
+            }
+
+            // Reset form
+            form.reset();
+
+            // Perbarui tampilan daftar buku
+            tampilkanDaftarBuku();
+        }
+
+        // Menghubungkan form dengan fungsi-fungsi
+        document.getElementById("formTambahBuku").addEventListener("submit", tambahBuku);
+        document.getElementById("formPinjamBuku").addEventListener("submit", pinjamBuku);
+        document.getElementById("formKembalikanBuku").addEventListener("submit", kembalikanBuku);
+    </script>
+</body>
+</html>

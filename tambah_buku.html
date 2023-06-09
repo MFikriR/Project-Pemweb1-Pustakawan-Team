@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>praktikum 11</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CRUD FIREBASE</h1>
+
+
+    <div class="tambah-data">
+        <button class="btn" id="btnTambah">Tambah Data</button>
+    </div>
+
+
+    <div id="tabel">
+        <table id="tabel-main">
+            <thead>
+                <tr>
+                    <th>Id Buku</th>
+                    <th>Judul</th>
+                    <th>Pengarang</th>
+                    <th>Tahun</th>
+                    <th>Penerbit</th>
+                    <th>Jumlah</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+
+            <div class="inputModal">
+                <h3 id="judulModal">Tambah Data</h3>
+                <table>
+                    <tr>
+                        <td><label for="judul">Judul</label></td>
+                        <td><input type="text" name="judul" id="judul"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pengarang">Pengarang</label></td>
+                        <td><input type="text" name="pengarang" id="pengarang"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tahun">Tahun</label></td>
+                        <td><input type="text" name="tahun" id="tahun"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="penerbit">Penerbit</label></td>
+                        <td><input type="text" name="penerbit" id="penerbit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="jumlah">Jumlah</label></td>
+                        <td><input type="text" name="jumlah" id="jumlah"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="Submit" name="submit" id="submit" class="btn"></td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Edit Data -->
+    <div id="editModal" class="modal">
+
+
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+
+            <div class="inputModal">
+                <h3 id="judulModal">Tambah Data</h3>
+                <table>
+                    <tr>
+                        <td><label for="nama">Nama</label></td>
+                        <td><input type="text" name="nama" id="namaEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nim">NIM</label></td>
+                        <td><input type="text" name="nim" id="nimEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email</label></td>
+                        <td><input type="text" name="email" id="emailEdit"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="Submit" name="submit" id="submitEdit" class="btn"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
