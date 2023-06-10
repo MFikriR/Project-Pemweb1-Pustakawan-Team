@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pilkom Perpus</title>
+    <link rel="stylesheet" href="database.css">
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+
+</head>
+<style>
+    .konten {
+        background-color: rgb(240, 240, 240);
+        border: 2px solid rgb(204, 204, 204);
+        width: 100%;
+        height: 200px;
+    }
+    table  {
+        width: 100%;
+    }
+
+    .tr-atas {
+        padding-inline: 10px;
+        font-weight: 900;
+        padding: 10px;
+    }
+
+    tr {
+        border-bottom: 1px solid rgb(204, 204, 204);
+        /* width: 100%; */
+    }
+
+    select {
+        margin: 10px;
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Pilkom Perpus</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#data1Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Data
+                        Pengguna</a>
+                    <ul class="collapse list-unstyled" id="data1Submenu">
+                        <li>
+                            <a href="#">List Admin</a>
+                        </li>
+                        <li>
+                            <a href="#">List Pengguna</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#data2Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Data
+                        Buku</a>
+                    <ul class="collapse list-unstyled" id="data2Submenu">
+                        <li>
+                            <a href="#">List Buku</a>
+                        </li>
+                        <li>
+                            <a href="#">Tambah Buku</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#data3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Data
+                        Peminjaman</a>
+                    <ul class="collapse list-unstyled" id="data3Submenu">
+                        <li>
+                            <a href="#">List Peminjaman</a>
+                        </li>
+                        <li>
+                            <a href="#">Tambah Peminjaman</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Data Pengembalian</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                </div>
+            </nav>
+            <h1>PEMINJAMAN</h1>
+    <div class="tambah-data">
+        <button class="btn" id="btnTambah" style="background-color:skyblue ;">Tambah +</button>
+    </div>
+    <div id="tabel">
+        <table id="tabel-main">
+            <thead>
+                <tr back>
+                    <th>ID Peminjaman</th>
+                    <th>ID Buku</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Tanggal Peminjaman</th>
+                    <th>Tanggal Pengembalian</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="myModal" class="modal"></div>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="inputModal">
+                <h3 id="judulModal">Tambah Data +</h3>
+                <table>
+                    <tr>
+                        <td><label for="idPeminjaman">ID Peminjam</label></td>
+                        <td><input type="text" name="idPeminjaman" id="idPeminjaman"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="idBuku">ID Buku</label></td>
+                        <td><input type="text" name="idBuku" id="idBuku"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nim">NIM</label></td>
+                        <td><input type="text" name="nim" id="nim"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nama">Nama</label></td>
+                        <td><input type="text" name="nama" id="nama"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tanggalPeminjaman">Tanggal Peminjaman</label></td>
+                        <td><input type="text" name="tanggalPeminjaman" id="tanggalPeminjaman"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tanggalPengembalian">Tanggal Pengembalian</label></td>
+                        <td><input type="text" name="tanggalPengembalian" id="tanggalPengembalian"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="Submit" name="submit" id="submit" class="btn"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Data -->
+    <div id="editModal" class="modal">
+
+
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+
+            <div class="inputModal">
+                <h3 id="judulModal">Tambah Data</h3>
+                <table>
+                    <tr>
+                        <td><label for="idPeminjaman">ID Peminjaman</label></td>
+                        <td><input type="text" name="idPeminjaman" id="idPeminjamanEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="idBuku">ID Buku</label></td>
+                        <td><input type="text" name="idBuku" id="idBukuEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nim">NIM</label></td>
+                        <td><input type="text" name="nim" id="nimEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nama">Nama</label></td>
+                        <td><input type="text" name="nama" id="namaEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tanggalPeminjaman">Tangal Peminjaman</label></td>
+                        <td><input type="text" name="tanggalPeminjaman" id="tanggalPeminjamanEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tanggalPengembalian">Tanggal Pengembalian</label></td>
+                        <td><input type="text" name="tanggalPengembalian" id="tanggalPengembalianEdit"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="Submit" name="submit" id="submitEdit" class="btn"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="database.js"></script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+   // TODO: Add SDKs for Firebase products that you want to use
+  import { getDatabase, ref, set, push, get, child, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+
+    
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDwjLBiXMH2NVFGZGMRP28vJTj5LsFOfus",
+      authDomain: "nanabia-cf7e3.firebaseapp.com",
+      projectId: "nanabia-cf7e3",
+      storageBucket: "nanabia-cf7e3.appspot.com",
+      messagingSenderId: "255065160055",
+      appId: "1:255065160055:web:aa634570133cbac27bc972",
+      measurementId: "G-NKM5PDLPEJ"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    
+    // inisialisasi tiap inputan
+    let idPeminjaman = document.getElementById("idPeminjaman");
+    let idBuku = document.getElementById("idBuku");
+    let nim = document.getElementById("nim");
+    let nama = document.getElementById("nama");
+    let tanggalPeminjaman = document.getElementById("tanggalPeminjaman");
+    let tanggalPengembalian = document.getElementById("tanggalPengembalian");
+        var selectedKey;
+        var editModal = document.getElementById('editModal');
+
+
+        // kerangka isi tbody
+        var tbody = document.getElementById('data');
+        var no = 0;
+
+
+        function addItemToTable(key, idPeminjaman, idBuku, nim, nama, tanggalPeminjaman, tanggalPengembalian){
+            let trow = document.createElement('tr');
+
+
+            let table =` 
+                        <td>${++no}</td>
+                        <td>${idBuku}</td>
+                        <td>${nim}</td>
+                        <td>${nama}</td>
+                        <td>${tanggalPeminjaman}</td>
+                        <td>${tanggalPengembalian}</td>
+                       
+                `
+            
+            let td = document.createElement('td')
+
+
+            let btnEdit = document.createElement('button');
+            let t = document.createTextNode('Edit');
+            btnEdit.id = 'btnEdit';
+            btnEdit.classList.add('btn')
+            btnEdit.value = key
+            btnEdit.appendChild(t);
+            btnEdit.addEventListener('click', ()=>{
+                editModal.style.display = 'block';
+                selectedKey = btnEdit.value;
+            })
+            btnEdit.onclick = function(){showDataEdit(btnEdit.value)};
+            
+            let btnHapus = document.createElement('button');
+            t = document.createTextNode('Hapus');
+            btnHapus.id = 'btnHapus';
+            btnHapus.classList.add('btn')
+            btnHapus.value = key;
+            btnHapus.appendChild(t);
+            btnHapus.addEventListener('click', (key)=>{
+                hapusData(btnEdit.value)
+            })
+
+
+            trow.innerHTML = table;
+            td.appendChild(btnEdit);
+            td.appendChild(btnHapus);
+            trow.appendChild(td);
+
+
+            tbody.appendChild(trow);
+        }
+
+
+        function AddAllItemToTable(Mahasiswa){
+            no = 0;
+            tbody.innerHTML='';
+            Mahasiswa.forEach(element => {
+                addItemToTable(element.key, element.idPeminjaman, element.idBuku, element.nim, element.nama, element.tanggalPeminjaman, element.tanggalPengembalian);
+            })
+        }
+
+
+        // tambah data
+        function tambahData(){
+            let data = {
+                idPeminjaman: idPeminjaman.value,
+                idBuku: idBuku.value,
+                nim: nim.value,
+                nama: nama.value,
+                tanggalPeminjaman: tanggalPeminjaman.value,
+                tanggalPengembalian: tanggalPengembalian.value,
+            };
+
+
+            push(ref(database, 'mahasiswa'), data)
+            .then(()=>{
+                idPeminjaman.value = '';
+                idBuku.value = '';
+                nim.value = '';
+                nama.value = '';
+                tanggalPeminjaman.value = '';
+                tanggalPengembalian.value = '';
+                alert('Data berhasil ditambahkan');
+            })
+            .catch((error)=>{
+                alert('Data gagal ditambahkan');
+            })
+        }
+
+
+        // assign button
+        document.getElementById('submit').addEventListener('click', tambahData);
+
+        // get data realtime
+        function getAllDataRealTime(){
+            const dbRef = ref(database, 'mahasiswa');
+            var tabel = document.getElementById('tabel');
+
+
+            onValue(dbRef, (snapshot)=>{
+                var mahasiswa = []
+                snapshot.forEach(childSnapshot =>{
+                    let temp = childSnapshot.val();
+                    temp['key'] = childSnapshot.key;
+                    mahasiswa.push(temp);
+                });
+            AddAllItemToTable(mahasiswa);
+            })
+        }
+        window.onload = getAllDataRealTime();
+// update data
+var submitEdit = document.getElementById('submitEdit');
+        submitEdit.onclick = function(){updateData(selectedKey)};
+        
+        function updateData(id){
+            let data = {
+                idPeminjaman: idPeminjamanEdit.value,
+                idBuku: idBukuEdit.value,
+                nim: nimEdit.value,
+                nama: namaEdit.value,
+                tanggalPeminjaman: tanggalPeminjamanEdit.value,
+                tanggalPengembalian: tanggalPengembalianEdit.value,
+            };
+
+
+            update(ref(database, 'mahasiswa/'+id), data)
+            .then(()=>{
+                idPeminjamanEdit.value = '';
+                idBukuEdit.value = '';
+                namaEdit.value = '';
+                nimEdit.value = '';
+                tanggalPeminjamanEdit.value = '';
+                tanggalPengembalianEdit.value = '';
+                editModal.style.display = 'none'
+                alert('Data berhasil diupdate');
+            })
+            .catch((error)=>{
+                alert('Data gagal ditambahkan');
+            });
+        }
+// hapus data
+        function hapusData(id){
+            remove(ref(database, 'mahasiswa/'+id))
+            .then(()=>{
+                alert('Data berhasil dihapus')
+            })
+            .catch((error)=>{
+                alert('Data gagal dihapus');
+            });
+        }
+  </script>
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+    <!-- Footer -->
+    <footer class="bg-white text-dark pt-5 pb-4">
+        <div class="container text-center text-md-left">
+            <div class="row text-center text-md-left">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Pilkom Perpus</h5>
+                    <p>Pendidikan Komputer <br> Universitas Lambung Mangkurat <br>Kota Banjarmasin, Kalimantan Selatan
+                    </p>
+
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Site</h5>
+                    <p>
+                        <a href="#" class="text-dark" style="text-decoration: none;">Home</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-dark" style="text-decoration: none;">About Us</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-dark" style="text-decoration: none;">Contact Us</a>
+                    </p>
+
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Community</h5>
+                    <p>
+                        <a href="#" class="text-dark" style="text-decoration: none;">Blog</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-dark" style="text-decoration: none;">Article</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-dark" style="text-decoration: none;">FAQ</a>
+                    </p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact Us</h5>
+                    <p>
+                        <i class="fas fa-home mr-3"></i>PILKOMPERPUS
+                    </p>
+                    <p>
+                        <i class="fas fa-phone mr-3"></i>+6281234567800
+                    </p>
+                    <p>
+                        <i class="fab fa-instagram mr-3"></i>PILKOM_PERPUS
+                    </p>
+                    <p>
+                        <i class="fab fa-twitter mr-3"></i>PILKOM_PERPUS
+                    </p>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p style="margin-left: 400px;">Copyright @2023 All rights reserved by:
+                        <a href="#">
+                            <strong class="text-warning">Pustakawan Team</strong>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

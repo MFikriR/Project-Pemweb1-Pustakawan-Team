@@ -20,7 +20,7 @@
         <table id="tabel-main">
             <thead>
                 <tr>
-                    <th>ID Buku</th>
+                    <th>Id</th>
                     <th>Judul</th>
                     <th>Penulis</th>
                     <th>Tahun</th>
@@ -194,10 +194,21 @@
                 hapusData(btnEdit.value)
             })
 
+            // baru ditambah
+            let btnPinjam = document.createElement('button');
+            let d = document.createTextNode('Pinjam');
+            btnPinjam.id = 'btnPinjam';
+            btnPinjam.classList.add('btn')
+            btnPinjam.value = key;
+            btnPinjam.appendChild(d);
+            btnPinjam.addEventListener('click', (key)=>{
+                pinjamData(btnPinjam.value)
+            })
 
             trow.innerHTML = table;
             td.appendChild(btnEdit);
             td.appendChild(btnHapus);
+            td.appendChild(btnPinjam);
             trow.appendChild(td);
 
 
@@ -301,4 +312,8 @@
             });
         }
 
+        // baru ditambah
+         function pinjamData(id){
+
+         }
       </script>
