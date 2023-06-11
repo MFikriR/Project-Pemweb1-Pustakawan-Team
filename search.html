@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Perpustakaan</title>
+  <script>
+    function searchBooks() {
+      var searchInput = document.getElementById("searchInput").value.toLowerCase();
+      var rows = document.querySelectorAll("#bookTable tbody tr");
+
+      for (var i = 0; i < rows.length; i++) {
+        var title = rows[i].getElementsByTagName("td")[0].textContent.toLowerCase();
+        var author = rows[i].getElementsByTagName("td")[1].textContent.toLowerCase();
+
+        if (title.includes(searchInput) || author.includes(searchInput)) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    }
+
+    function borrowBook(button) {
+      var row = button.parentNode.parentNode;
+      var title = row.getElementsByTagName("td")[0].textContent;
+
+      // Lakukan logika untuk meminjam buku
+      console.log("Meminjam buku: " + title);
+    }
+  </script>
+</head>
+<body>
+  <input type="text" id="searchInput" placeholder="Cari buku...">
+  <button type="button" onclick="searchBooks()">Cari</button>
+
+  <table id="bookTable">
+    <thead>
+      <tr>
+        <th>Judul</th>
+        <th>Pengarang</th>
+        <th>Tahun Terbit</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Harry Potter</td>
+        <td>J.K. Rowling</td>
+        <td>1997</td>
+        <td><button onclick="borrowBook(this)">Pinjam</button></td>
+      </tr>
+      <tr>
+        <td>The Great Gatsby</td>
+        <td>F. Scott Fitzgerald</td>
+        <td>1925</td>
+        <td><button onclick="borrowBook(this)">Pinjam</button></td>
+      </tr>
+      <!-- Tambahkan data buku lainnya di sini -->
+    </tbody>
+  </table>
+</body>
+</html>

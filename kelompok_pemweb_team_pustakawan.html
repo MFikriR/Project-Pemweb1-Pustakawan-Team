@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body class="latar">
     <div class="kotak"></div>
@@ -16,17 +17,33 @@
     <div class="nameUser"><input type="text" class="form-control" id="inputUser" placeholder="Masukkan Nama Pengguna" style="height: 30px; width: 350px; padding-bottom: 5px;"></div>
     <div class="password"><input type="password" class="form-control" id="inputPassword2" placeholder="masukkan Password" style="height: 30px; width: 350px; padding-bottom: 5px;" ></div>
     <div class="garis"></div>
-    <div><a href="sidebar.html" class="log" onclick="myFunction()"></a></div>
-    <div><a href="sidebar.html" class="loggin" onclick="myFunction()">login</a></div>
+      <button class="log" onclick="openPopup()">Submit</button>
+      <div class="popup" id="popup">
+          <img src="404-tick.png">
+          <h2>Thank You!</h2>
+          <p>Your details has been succcessfully submitted. Thanks!</p>
+          <a href="sidebar.html" type="button" onclick="closePopup()"><button>OK</button></a>
+      </div>
+    <!-- <div><a href="sidebar.html" class="log" onclick="myFunction()">login</a></div> -->
 
 <script>
-function myFunction() {
-  alert("Login berhasil");
+  let popup = document.getElementById("popup");
+
+    function openPopup(){
+    popup.classList.add("open-popup");
 }
+
+function closePopup(){
+    popup.classList.remove("open-popup");
+}
+// function myFunction() {
+//   alert("Login berhasil");
+// }
 </script>
     <div class="avatar">
         <div class="badan"></div>
         <div class="kepala"></div>
     </div>
+    
 </body>
 </html>

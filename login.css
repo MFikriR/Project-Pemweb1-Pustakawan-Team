@@ -128,9 +128,16 @@
     height: 66px;
     left: 802px;
     top: 691px;
+    text-align: center;
     background: #BEDCFF;
     border: 1px solid #000000;
     border-radius: 40px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 60px;
+    color:gray;
 }
 .loggin{
     position: absolute;

@@ -1,9 +1,15 @@
 // Get the modal
 var addModal = document.getElementById("myModal");
 var editModal = document.getElementById("editModal");
-let nama = document.getElementById("nama");
+
+
+let idPeminjaman = document.getElementById("idPeminjaman");
+let idBuku = document.getElementById("idBuku");
 let nim = document.getElementById("nim");
-let email = document.getElementById("email");
+let nama = document.getElementById("nama");
+let tanggalPeminjaman = document.getElementById("tanggalPeminjaman");
+let tanggalPengembalian = document.getElementById("tanggalPengembalian");
+
 
 
 // Get the button that opens the modal
@@ -20,29 +26,41 @@ btnTambah.onclick = function() {
 }
 
 
+
 // When the user clicks on <span> (x), close the modal
 span[0].onclick = function() {
-  nama.value = "";
+
+  idPeminjaman = "";
+  idBuku = "";
   nim.value = "";
-  email.value = "";
+  nama.value = "";
+  tanggalPeminjaman.value = "";
+  tanggalPengembalian.value = "";
   addModal.style.display = "none";
 }
 
 
 span[1].onclick = function() {
-    nama.value = "";
-    nim.value = "";
-    email.value = "";
-    editModal.style.display = "none";
+
+  idPeminjaman = "";
+  idBuku = "";
+  nim.value = "";
+  nama.value = "";
+  tanggalPeminjaman.value = "";
+  tanggalPengembalian.value = "";
+  editModal.style.display = "none";
   }
 
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == addModal || event.target == editModal) {
-    nama.value = "";
+    idPeminjaman = "";
+    idBuku = "";
     nim.value = "";
-    email.value = "";
+    nama.value = "";
+    tanggalPeminjaman.value = "";
+    tanggalPengembalian.value = "";
     addModal.style.display = "none";
     editModal.style.display = "none";
   }

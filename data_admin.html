@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>Pilkom Perpus</title>
     <link rel="stylesheet" href="database.css">
 
@@ -60,51 +59,17 @@
             <div class="sidebar-header">
                 <h3>Pilkom Perpus</h3>
             </div>
-
             <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#">Dashboard</a>
+                <li>
+                    <a href="#">List buku</a>
                 </li>
                 <li>
-                    <a href="#data1Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Data
-                        Pengguna</a>
-                    <ul class="collapse list-unstyled" id="data1Submenu">
-                        <li>
-                            <a href="#">List Admin</a>
-                        </li>
-                        <li>
-                            <a href="#">List Pengguna</a>
-                        </li>
-                    </ul>
+                   <a href="sidebar.html">Tambah buku</a>
                 </li>
                 <li>
-                    <a href="#data2Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Data
-                        Buku</a>
-                    <ul class="collapse list-unstyled" id="data2Submenu">
-                        <li>
-                            <a href="#">List Buku</a>
-                        </li>
-                        <li>
-                            <a href="#">Tambah Buku</a>
-                        </li>
-                    </ul>
+                    <a href="#" style="background-color:white; color: steelblue;">Data Peminjaman</a>
                 </li>
-                <li>
-                    <a href="#data3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Data
-                        Peminjaman</a>
-                    <ul class="collapse list-unstyled" id="data3Submenu">
-                        <li>
-                            <a href="#">List Peminjaman</a>
-                        </li>
-                        <li>
-                            <a href="#">Tambah Peminjaman</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Data Pengembalian</a>
-                </li>
-            </ul>
+            </ul>                
         </nav>
 
         <!-- Page Content Holder -->
@@ -120,19 +85,20 @@
 
                 </div>
             </nav>
-            <!-- data buku -->
-            <h1>TAMBAH BUKU</h1>
+            <h1>PEMINJAMAN</h1>
     <div class="tambah-data">
-        <button class="btn" id="btnTambah">Tambah +</button>
+        <button class="btn" id="btnTambah" style="background-color:skyblue ;">Tambah +</button>
     </div>
     <div id="tabel">
         <table id="tabel-main">
             <thead>
-                <tr>
-                    <th>No</th>
+                <tr back>
+                    <th>ID Peminjaman</th>
+                    <th>ID Buku</th>
+                    <th>NIM</th>
                     <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>No.Telp/HP</th>
+                    <th>Tanggal Peminjaman</th>
+                    <th>Tanggal Pengembalian</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -141,29 +107,40 @@
         </table>
     </div>
 
-    <div id="myModal" class="modal">
+    <div id="myModal" class="modal"></div>
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="inputModal">
-                <h3 id="judulModal">Tambah Admin</h3>
+                <h3 id="judulModal">Tambah Data +</h3>
                 <table>
+                    <tr>
+                        <td><label for="idPeminjaman">ID Peminjam</label></td>
+                        <td><input type="text" name="idPeminjaman" id="idPeminjaman"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="idBuku">ID Buku</label></td>
+                        <td><input type="text" name="idBuku" id="idBuku"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nim">NIM</label></td>
+                        <td><input type="text" name="nim" id="nim"></td>
+                    </tr>
                     <tr>
                         <td><label for="nama">Nama</label></td>
                         <td><input type="text" name="nama" id="nama"></td>
                     </tr>
                     <tr>
-                        <td><label for="nim">Alamat</label></td>
-                        <td><input type="text" name="nim" id="nim"></td>
+                        <td><label for="tanggalPeminjaman">Tanggal Peminjaman</label></td>
+                        <td><input type="text" name="tanggalPeminjaman" id="tanggalPeminjaman"></td>
                     </tr>
                     <tr>
-                        <td><label for="email">No Telp/HP</label></td>
-                        <td><input type="text" name="email" id="email"></td>
+                        <td><label for="tanggalPengembalian">Tanggal Pengembalian</label></td>
+                        <td><input type="text" name="tanggalPengembalian" id="tanggalPengembalian"></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td><input type="button" value="Submit" name="submit" id="submit" class="btn"></td>
                     </tr>
-                    
                 </table>
             </div>
         </div>
@@ -182,16 +159,28 @@
                 <h3 id="judulModal">Tambah Data</h3>
                 <table>
                     <tr>
+                        <td><label for="idPeminjaman">ID Peminjaman</label></td>
+                        <td><input type="text" name="idPeminjaman" id="idPeminjamanEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="idBuku">ID Buku</label></td>
+                        <td><input type="text" name="idBuku" id="idBukuEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nim">NIM</label></td>
+                        <td><input type="text" name="nim" id="nimEdit"></td>
+                    </tr>
+                    <tr>
                         <td><label for="nama">Nama</label></td>
                         <td><input type="text" name="nama" id="namaEdit"></td>
                     </tr>
                     <tr>
-                        <td><label for="nim">Alamat</label></td>
-                        <td><input type="text" name="nim" id="nimEdit"></td>
+                        <td><label for="tanggalPeminjaman">Tangal Peminjaman</label></td>
+                        <td><input type="text" name="tanggalPeminjaman" id="tanggalPeminjamanEdit"></td>
                     </tr>
                     <tr>
-                        <td><label for="email">No. Telp/HP</label></td>
-                        <td><input type="text" name="email" id="emailEdit"></td>
+                        <td><label for="tanggalPengembalian">Tanggal Pengembalian</label></td>
+                        <td><input type="text" name="tanggalPengembalian" id="tanggalPengembalianEdit"></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -230,9 +219,12 @@
     const database = getDatabase(app);
     
     // inisialisasi tiap inputan
-    let nama = document.getElementById('nama');
-        let nim = document.getElementById('nim');
-        let email = document.getElementById('email');
+    let idPeminjaman = document.getElementById("idPeminjaman");
+    let idBuku = document.getElementById("idBuku");
+    let nim = document.getElementById("nim");
+    let nama = document.getElementById("nama");
+    let tanggalPeminjaman = document.getElementById("tanggalPeminjaman");
+    let tanggalPengembalian = document.getElementById("tanggalPengembalian");
         var selectedKey;
         var editModal = document.getElementById('editModal');
 
@@ -242,22 +234,25 @@
         var no = 0;
 
 
-        function addItemToTable(key, nama, nim, email){
+        function addItemToTable(key, idPeminjaman, idBuku, nim, nama, tanggalPeminjaman, tanggalPengembalian){
             let trow = document.createElement('tr');
 
 
             let table =` 
                         <td>${++no}</td>
-                        <td>${nama}</td>
+                        <td>${idBuku}</td>
                         <td>${nim}</td>
-                        <td>${email}</td>
+                        <td>${nama}</td>
+                        <td>${tanggalPeminjaman}</td>
+                        <td>${tanggalPengembalian}</td>
+                       
                 `
             
             let td = document.createElement('td')
 
 
             let btnEdit = document.createElement('button');
-            let t = document.createTextNode('Edit');
+            let t = document.createTextNode('Perpanjang');
             btnEdit.id = 'btnEdit';
             btnEdit.classList.add('btn')
             btnEdit.value = key
@@ -269,7 +264,7 @@
             btnEdit.onclick = function(){showDataEdit(btnEdit.value)};
             
             let btnHapus = document.createElement('button');
-            t = document.createTextNode('Hapus');
+            t = document.createTextNode('serahkan');
             btnHapus.id = 'btnHapus';
             btnHapus.classList.add('btn')
             btnHapus.value = key;
@@ -293,7 +288,7 @@
             no = 0;
             tbody.innerHTML='';
             Mahasiswa.forEach(element => {
-                addItemToTable(element.key, element.nama, element.nim, element.email);
+                addItemToTable(element.key, element.idPeminjaman, element.idBuku, element.nim, element.nama, element.tanggalPeminjaman, element.tanggalPengembalian);
             })
         }
 
@@ -301,21 +296,27 @@
         // tambah data
         function tambahData(){
             let data = {
-                nama: nama.value,
+                idPeminjaman: idPeminjaman.value,
+                idBuku: idBuku.value,
                 nim: nim.value,
-                email: email.value
+                nama: nama.value,
+                tanggalPeminjaman: tanggalPeminjaman.value,
+                tanggalPengembalian: tanggalPengembalian.value,
             };
 
 
             push(ref(database, 'mahasiswa'), data)
             .then(()=>{
-                nama.value = '';
+                idPeminjaman.value = '';
+                idBuku.value = '';
                 nim.value = '';
-                email.value = '';
-                alert('Data berhasil ditambahkan');
+                nama.value = '';
+                tanggalPeminjaman.value = '';
+                tanggalPengembalian.value = '';
+                alert('Buku berhasil diperpanjang');
             })
             .catch((error)=>{
-                alert('Data gagal ditambahkan');
+                alert('Buku gagal diperpanjang');
             })
         }
 
@@ -346,22 +347,28 @@ var submitEdit = document.getElementById('submitEdit');
         
         function updateData(id){
             let data = {
-                nama: namaEdit.value,
+                idPeminjaman: idPeminjamanEdit.value,
+                idBuku: idBukuEdit.value,
                 nim: nimEdit.value,
-                email: emailEdit.value
+                nama: namaEdit.value,
+                tanggalPeminjaman: tanggalPeminjamanEdit.value,
+                tanggalPengembalian: tanggalPengembalianEdit.value,
             };
 
 
             update(ref(database, 'mahasiswa/'+id), data)
             .then(()=>{
+                idPeminjamanEdit.value = '';
+                idBukuEdit.value = '';
                 namaEdit.value = '';
                 nimEdit.value = '';
-                emailEdit.value = '';
+                tanggalPeminjamanEdit.value = '';
+                tanggalPengembalianEdit.value = '';
                 editModal.style.display = 'none'
-                alert('Data berhasil diupdate');
+                alert('Buku berhasil dikembalikan');
             })
             .catch((error)=>{
-                alert('Data gagal ditambahkan');
+                alert('Buku gagal dikembalikan');
             });
         }
 // hapus data
