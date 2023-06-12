@@ -194,21 +194,9 @@
                 hapusData(btnEdit.value)
             })
 
-            // baru ditambah
-            let btnPinjam = document.createElement('button');
-            let d = document.createTextNode('Pinjam');
-            btnPinjam.id = 'btnPinjam';
-            btnPinjam.classList.add('btn')
-            btnPinjam.value = key;
-            btnPinjam.appendChild(d);
-            btnPinjam.addEventListener('click', (key)=>{
-                pinjamData(btnPinjam.value)
-            })
-
             trow.innerHTML = table;
             td.appendChild(btnEdit);
             td.appendChild(btnHapus);
-            td.appendChild(btnPinjam);
             trow.appendChild(td);
 
 
@@ -311,9 +299,4 @@
                 alert('Data gagal dihapus');
             });
         }
-
-        // baru ditambah
-         function pinjamData(id){
-
-         }
       </script>
