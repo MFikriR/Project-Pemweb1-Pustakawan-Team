@@ -26,7 +26,7 @@
       }
     </style>
 </head>
-<body style="background-color:darkgray;">
+<body>
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
@@ -34,12 +34,9 @@
                 <h3>Pilkom Perpus</h3>
             </div>
             <ul class="list-unstyled components">
-<<<<<<< HEAD
-=======
-                <!-- <li>
+                <li>
                     <a href="contoh list.html">List buku</a>
-                </li> -->
->>>>>>> e4fd8530ba0f759a25ef0f357e73ab9828a5da2f
+                </li>
                 <li>
                     <a href="sidebar.html" style="background-color:white; color:steelblue;">Tambah buku</a>
                 </li>
@@ -65,9 +62,8 @@
     
 
     <!-- TAMBAH BUKU -->
-    <h1>TAMBAH BUKU</h1>
+    <h1>PERPUSTAKAAN</h1>
     <div class="tambah-data">
-        <button class="btn" id="btnTambah">Tambah Data</button>
     </div>  
 
 
@@ -250,20 +246,20 @@
             })
 
             // baru ditambah
-            let btnPinjam = document.createElement('button');
-            let d = document.createTextNode('Pinjam');
-            btnPinjam.id = 'btnPinjam';
-            btnPinjam.classList.add('btn')
-            btnPinjam.value = key;
-            btnPinjam.appendChild(d);
-            btnPinjam.addEventListener('click', (key)=>{
-                pinjamData(btnPinjam.value)
-            })
+            // let btnPinjam = document.createElement('button');
+            // let d = document.createTextNode('Pinjam');
+            // btnPinjam.id = 'btnPinjam';
+            // btnPinjam.classList.add('btn')
+            // btnPinjam.value = key;
+            // btnPinjam.appendChild(d);
+            // btnPinjam.addEventListener('click', (key)=>{
+            //     pinjamData(btnPinjam.value)
+            // })
 
             trow.innerHTML = table;
             td.appendChild(btnEdit);
             td.appendChild(btnHapus);
-            td.appendChild(btnPinjam);
+            // td.appendChild(btnPinjam);
             trow.appendChild(td);
 
 
@@ -389,8 +385,6 @@
             });
         });
     </script>
-
-    <!-- Footer -->
     <footer class="bg-white text-dark pt-5 pb-4">
         <div class="container text-center text-md-left">
             <div class="row text-center text-md-left">
@@ -433,10 +427,10 @@
                         <i class="fas fa-phone mr-3"></i>+6281234567800
                     </p>
                      <p>
-                        <i class="fab fa-instagram mr-3"></i>PILKOM_PERPUS
+                        <i class="fas fa-instagram mr-3"></i>PILKOM_PERPUS
                     </p>
                     <p>
-                        <i class="fab fa-twitter mr-3"></i>PILKOM_PERPUS
+                        <i class="fas fa-twitter mr-3"></i>PILKOM_PERPUS
                     </p>
                 </div>
             </div>
