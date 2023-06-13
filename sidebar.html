@@ -26,12 +26,14 @@
       }
     </style>
 </head>
-<body style="background-color:darkgray;">
+<body>
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Pilkom Perpus</h3>
+                <h3 style="font-size:21px;">Sistem informasi</h3>
+                <h1 style="font-size:25px;">Pilkom Perpus</h1>
+                <h3 style="font-size:19px;">Pendidikan Komputer</h3>
             </div>
             <ul class="list-unstyled components">
                 <!-- <li>
@@ -41,7 +43,7 @@
                     <a href="sidebar.html" style="background-color:white; color:steelblue;">Tambah buku</a>
                 </li>
                 <li>
-                    <a href="data_admin.html">Data Peminjaman</a>
+                    <a href="pinjam.html">Data Peminjaman</a>
                 </li>
             </ul>
         </nav>
@@ -246,16 +248,17 @@
                 hapusData(btnEdit.value)
             })
 
-            // baru ditambah
-            let btnPinjam = document.createElement('button');
-            let d = document.createTextNode('Pinjam');
-            btnPinjam.id = 'btnPinjam';
-            btnPinjam.classList.add('btn')
-            btnPinjam.value = key;
-            btnPinjam.appendChild(d);
-            btnPinjam.addEventListener('click', (key)=>{
-                pinjamData(btnPinjam.value)
-            })
+            // TOMBOL PINJAM
+let btnPinjam = document.createElement('button');
+let d = document.createTextNode('Pinjam');
+btnPinjam.id = 'btnPinjam';
+btnPinjam.classList.add('btn');
+btnPinjam.value = key;
+btnPinjam.appendChild(d);
+btnPinjam.addEventListener('click', () => {
+    window.location.href = 'pinjam.html';
+});
+
 
             trow.innerHTML = table;
             td.appendChild(btnEdit);

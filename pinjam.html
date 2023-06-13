@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Pilkom Perpus</title>
-    <link rel="stylesheet" href="database.css">
+    <link rel="stylesheet" href="cpinjam.css">
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
@@ -57,17 +57,16 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Pilkom Perpus</h3>
+                <h3 style="font-size:21px;">Sistem informasi</h3>
+                <h1 style="font-size:25px;">Pilkom Perpus</h1>
+                <h3 style="font-size:19px;">Pendidikan Komputer</h3>
             </div>
             <ul class="list-unstyled components">
-                <li>
-                    <a href="contoh list.html">List buku</a>
-                </li>
                 <li>
                    <a href="sidebar.html">Tambah buku</a>
                 </li>
                 <li>
-                    <a href="data_admin.html" style="background-color:white; color: steelblue;">Data Peminjaman</a>
+                    <a href="pinjam.html" style="background-color:white; color: steelblue;">Data Peminjaman</a>
                 </li>
             </ul>                
         </nav>
@@ -97,23 +96,23 @@
                     </tr> -->
                     <tr>
                         <td><label for="idBuku">ID Buku</label></td>
-                        <td><input type="text" name="idBuku" id="idBuku"></td>
+                        <td><input type="text" name="idBuku" id="idBuku" placeholder="Id Buku"></td>
                     </tr>
                     <tr>
                         <td><label for="nim">NIM</label></td>
-                        <td><input type="text" name="nim" id="nim"></td>
+                        <td><input type="text" name="nim" id="nim" placeholder="NIM"></td>
                     </tr>
                     <tr>
                         <td><label for="nama">Nama</label></td>
-                        <td><input type="text" name="nama" id="nama"></td>
+                        <td><input type="text" name="nama" id="nama" placeholder="Nama"></td>
                     </tr>
                     <tr>
                         <td><label for="tanggalPeminjaman">Tanggal Peminjaman</label></td>
-                        <td><input type="date" name="tanggalPeminjaman" id="tanggalPeminjaman"></td>
+                        <td><input type="date" name="tanggalPeminjaman" id="tanggalPeminjaman" class="input-date"></td>
                     </tr>
                     <tr>
                         <td><label for="tanggalPengembalian">Tanggal Pengembalian</label></td>
-                        <td><input type="date" name="tanggalPengembalian" id="tanggalPengembalian"></td>
+                        <td><input type="date" name="tanggalPengembalian" id="tanggalPengembalian" class="input-date"></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -190,7 +189,7 @@
         </div>
     </div>
 </body>
-<script src="dtbase.js"></script>
+<script src="spinjam.js"></script>
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";

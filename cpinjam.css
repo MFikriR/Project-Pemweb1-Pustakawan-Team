@@ -97,4 +97,6 @@ thead {
     text-decoration: none;
     cursor: pointer;
 }
-
+.input-date{
+    padding: 0 25px;
+}
