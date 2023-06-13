@@ -27,7 +27,7 @@ btnTambah.onclick = function() {
 // When the user clicks on <span> (x), close the modal
 span[0].onclick = function() {
 
-  idPeminjaman = "";
+  // idPeminjaman = "";
   idBuku = "";
   nim.value = "";
   nama.value = "";
@@ -39,7 +39,7 @@ span[0].onclick = function() {
 
 span[1].onclick = function() {
 
-  idPeminjaman = "";
+  // idPeminjaman = "";
   idBuku = "";
   nim.value = "";
   nama.value = "";
@@ -52,7 +52,7 @@ span[1].onclick = function() {
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == addModal || event.target == editModal) {
-    idPeminjaman = "";
+    // idPeminjaman = "";
     idBuku = "";
     nim.value = "";
     nama.value = "";
