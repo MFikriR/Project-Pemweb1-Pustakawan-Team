@@ -86,7 +86,24 @@
         }
     </style>
     
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
     <script>
+  // Inisialisasi Firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyCLD4Rq2PaUh_pLjnkGcnyVcTwozC-8CXc",
+          authDomain: "nvya-cc520.firebaseapp.com",
+          projectId: "nvya-cc520",
+          storageBucket: "nvya-cc520.appspot.com",
+          messagingSenderId: "582129684783",
+          appId: "1:582129684783:web:7a958c60d316ed1f54d1da",
+          measurementId: "G-614SPW1CJL"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  // Referensi ke data buku di Firebase Realtime Database
+  var booksRef = firebase.database().ref("books");
+
         function searchBooks() {
             var keyword = document.getElementById('search-input').value.toLowerCase();
             var books = document.getElementsByClassName('book');
@@ -105,9 +122,21 @@
         }
         
         function borrowBook(bookId) {
-            // Mengarahkan pengguna ke halaman 'sidebar.html'
-            window.location.href = 'data_admin.html';
-        }
+    // Mendapatkan informasi buku berdasarkan ID
+    var book = document.getElementsByClassName("book")[bookId - 1];
+    var title = book.getElementsByClassName("title")[0].textContent;
+    var author = book.getElementsByClassName("author")[0].textContent;
+
+    // Simpan data buku ke Firebase Realtime Database
+    var newBookRef = booksRef.push();
+    newBookRef.set({
+      title: title,
+      author: author,
+    });
+
+    // Mengarahkan pengguna ke halaman 'data_admin.html'
+    window.location.href = "data_admin.html";
+  }
     </script>
 </head>
 <body>
