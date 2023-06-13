@@ -60,9 +60,9 @@
                 <h3>Pilkom Perpus</h3>
             </div>
             <ul class="list-unstyled components">
-                <li>
+                <!-- <li>
                     <a href="contoh list.html">List buku</a>
-                </li>
+                </li> -->
                 <li>
                    <a href="sidebar.html">Tambah buku</a>
                 </li>
@@ -85,33 +85,11 @@
 
                 </div>
             </nav>
-            <h1>PEMINJAMAN</h1>
-    <div class="tambah-data">
-        <button class="btn" id="btnTambah" style="background-color:skyblue ;">Tambah +</button>
-    </div>
-    <div id="tabel">
-        <table id="tabel-main">
-            <thead>
-                <tr back>
-                    <th>ID Peminjaman</th>
-                    <th>ID Buku</th>
-                    <th>NIM</th>
-                    <th>Nama</th>
-                    <th>Tanggal Peminjaman</th>
-                    <th>Tanggal Pengembalian</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody id="data">
-            </tbody>
-        </table>
-    </div>
-
-    <div id="myModal" class="modal"></div>
+            <div id="myModal" class="modal"></div>
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="inputModal">
-                <h3 id="judulModal">Tambah Data +</h3>
+                <h3 id="judulModal">Silakan Isi</h3>
                 <table>
                     <tr>
                         <td><label for="idPeminjaman">ID Peminjam</label></td>
@@ -144,6 +122,26 @@
                 </table>
             </div>
         </div>
+
+            <h1>PEMINJAMAN</h1>
+    <div class="tambah-data">
+    </div>
+    <div id="tabel">
+        <table id="tabel-main">
+            <thead>
+                <tr back>
+                    <th>ID Peminjaman</th>
+                    <th>ID Buku</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Tanggal Peminjaman</th>
+                    <th>Tanggal Pengembalian</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+            </tbody>
+        </table>
     </div>
 
     <!-- Modal Edit Data -->
@@ -406,6 +404,7 @@ var submitEdit = document.getElementById('submitEdit');
             });
         });
     </script>
+    
     <!-- Footer -->
     <footer class="bg-white text-dark pt-5 pb-4">
         <div class="container text-center text-md-left">
