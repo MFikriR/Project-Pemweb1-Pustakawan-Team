@@ -16,7 +16,21 @@
     <div class="pendidikanKomputer">Pendidikan Komputer</div>
     <div class="login">Login</div>
     <div class="nameUser"><input type="text" class="form-control" id="inputUser" placeholder="Username" style="height: 30px; width: 350px; padding-bottom: 5px;"></div>
-    <div class="password"><input type="password" class="form-control" id="inputPassword2" placeholder="Password" style="height: 30px; width: 350px; padding-bottom: 5px;" ></div>
+    <div class="password">
+      <input type="password" class="form-control" id="inputPassword2" placeholder="Password" style="height: 30px; width: 350px; padding-bottom: 5px;"><button onclick="togglePasswordVisibility()" class="button">Show Password</button>
+    </div>
+  
+    <script>
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("inputPassword2");
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    }
+    </script>
+    
     <div class="garis"></div>
     <a href="#" id="login"><a id ="sub_btn" class="btn" role="button"><button class="log" onclick="openPopup()">Submit</button></a></a>
       <div class="popup" id="popup">

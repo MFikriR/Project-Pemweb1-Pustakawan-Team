@@ -201,3 +201,25 @@
     background-color: skyblue;
     color: skyblue;
 }
+
+.button {
+  background-color:  rgb(189, 202, 243);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: rgb(173, 190, 245);
+}
+
+.button:active {
+  background-color:  rgb(145, 169, 247);
+}
