@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabel Data Buku</title>
+    <script>
+        function pinjamBuku(row) {
+            var jumlahTersedia = parseInt(row.cells[2].innerHTML);
+            if (jumlahTersedia > 0) {
+                row.cells[2].innerHTML = jumlahTersedia - 1;
+            } else {
+                alert("Buku sudah habis!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Tabel Data Buku</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Judul Buku</th>
+                <th>Jumlah Tersedia</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Buku A</td>
+                <td>5</td>
+                <td><button onclick="pinjamBuku(this.parentNode.parentNode)">Pinjam</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Buku B</td>
+                <td>3</td>
+                <td><button onclick="pinjamBuku(this.parentNode.parentNode)">Pinjam</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Buku C</td>
+                <td>8</td>
+                <td><button onclick="pinjamBuku(this.parentNode.parentNode)">Pinjam</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Buku D</td>
+                <td>2</td>
+                <td><button onclick="pinjamBuku(this.parentNode.parentNode)">Pinjam</button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
