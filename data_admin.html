@@ -25,6 +25,11 @@
 
 </head>
 <style>
+    .input-date{
+    padding: 0 25px;
+
+}
+
     .konten {
         background-color: rgb(240, 240, 240);
         border: 2px solid rgb(204, 204, 204);
@@ -52,19 +57,23 @@
     }
 </style>
 
-<body style="background-color: darkgray;">
+<body>
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3 style="font-size:21px;">Sistem informasi</h3>
-                <h1 style="font-size:25px;">Pilkom Perpus</h1>
-                <h3 style="font-size:19px;">Pendidikan Komputer</h3>
+                <h3>Pilkom Perpus</h3>
             </div>
             <ul class="list-unstyled components">
+<<<<<<< HEAD
+                <li>
+                    <a href="contoh list.html">List buku</a>
+                </li>
+=======
                 <!-- <li>
                     <a href="contoh list.html">List buku</a>
                 </li> -->
+>>>>>>> bd565fa5649320d6817eb363dc6a42071080956d
                 <li>
                    <a href="sidebar.html">Tambah buku</a>
                 </li>
@@ -93,29 +102,29 @@
             <div class="inputModal">
                 <h3 id="judulModal">Silakan Isi</h3>
                 <table>
-                    <tr>
+                    <!-- <tr>
                         <td><label for="idPeminjaman">ID Peminjam</label></td>
                         <td><input type="text" name="idPeminjaman" id="idPeminjaman"></td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td><label for="idBuku">ID Buku</label></td>
-                        <td><input type="text" name="idBuku" id="idBuku"></td>
+                        <td><input type="text" name="idBuku" id="idBuku" placeholder="Id Buku" ></td>
                     </tr>
                     <tr>
                         <td><label for="nim">NIM</label></td>
-                        <td><input type="text" name="nim" id="nim"></td>
-                    </tr>
+                        <td><input type="text" name="nim" id="nim" placeholder="NIM"></td>
+                    </tr>D
                     <tr>
                         <td><label for="nama">Nama</label></td>
-                        <td><input type="text" name="nama" id="nama"></td>
+                        <td><input type="text" name="nama" id="nama" placeholder="Nama"></td>
                     </tr>
                     <tr>
                         <td><label for="tanggalPeminjaman">Tanggal Peminjaman</label></td>
-                        <td><input type="text" name="tanggalPeminjaman" id="tanggalPeminjaman"></td>
+                        <td><input type="date" name="tanggalPeminjaman" id="tanggalPeminjaman" class="input-date"></td>
                     </tr>
                     <tr>
                         <td><label for="tanggalPengembalian">Tanggal Pengembalian</label></td>
-                        <td><input type="text" name="tanggalPengembalian" id="tanggalPengembalian"></td>
+                        <td><input type="date" name="tanggalPengembalian" id="tanggalPengembalian" class="input-date"></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -146,6 +155,7 @@
         </table>
     </div>
 
+
     <!-- Modal Edit Data -->
     <div id="editModal" class="modal">
 
@@ -158,10 +168,10 @@
             <div class="inputModal">
                 <h3 id="judulModal">Tambah Data</h3>
                 <table>
-                    <tr>
+                    <!-- <tr>
                         <td><label for="idPeminjaman">ID Peminjaman</label></td>
                         <td><input type="text" name="idPeminjaman" id="idPeminjamanEdit"></td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td><label for="idBuku">ID Buku</label></td>
                         <td><input type="text" name="idBuku" id="idBukuEdit"></td>
@@ -176,11 +186,11 @@
                     </tr>
                     <tr>
                         <td><label for="tanggalPeminjaman">Tangal Peminjaman</label></td>
-                        <td><input type="text" name="tanggalPeminjaman" id="tanggalPeminjamanEdit"></td>
+                        <td><input type="date" name="tanggalPeminjaman" id="tanggalPeminjamanEdit"></td>
                     </tr>
                     <tr>
                         <td><label for="tanggalPengembalian">Tanggal Pengembalian</label></td>
-                        <td><input type="text" name="tanggalPengembalian" id="tanggalPengembalianEdit"></td>
+                        <td><input type="date" name="tanggalPengembalian" id="tanggalPengembalianEdit"></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -191,7 +201,7 @@
         </div>
     </div>
 </body>
-<script src="database.js"></script>
+<script src="dtbase.js"></script>
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
@@ -219,7 +229,7 @@
     const database = getDatabase(app);
     
     // inisialisasi tiap inputan
-    let idPeminjaman = document.getElementById("idPeminjaman");
+    // let idPeminjaman = document.getElementById("idPeminjaman");
     let idBuku = document.getElementById("idBuku");
     let nim = document.getElementById("nim");
     let nama = document.getElementById("nama");
@@ -234,7 +244,7 @@
         var no = 0;
 
 
-        function addItemToTable(key, idPeminjaman, idBuku, nim, nama, tanggalPeminjaman, tanggalPengembalian){
+        function addItemToTable(key, idBuku, nim, nama, tanggalPeminjaman, tanggalPengembalian){
             let trow = document.createElement('tr');
 
 
@@ -264,7 +274,7 @@
             btnEdit.onclick = function(){showDataEdit(btnEdit.value)};
             
             let btnHapus = document.createElement('button');
-            t = document.createTextNode('serahkan');
+            t = document.createTextNode('Serahkan');
             btnHapus.id = 'btnHapus';
             btnHapus.classList.add('btn')
             btnHapus.value = key;
@@ -275,7 +285,7 @@
 
 
             trow.innerHTML = table;
-            td.appendChild(btnEdit);
+            // td.appendChild(btnEdit);
             td.appendChild(btnHapus);
             trow.appendChild(td);
 
@@ -288,7 +298,7 @@
             no = 0;
             tbody.innerHTML='';
             Mahasiswa.forEach(element => {
-                addItemToTable(element.key, element.idPeminjaman, element.idBuku, element.nim, element.nama, element.tanggalPeminjaman, element.tanggalPengembalian);
+                addItemToTable(element.key, element.idBuku, element.nim, element.nama, element.tanggalPeminjaman, element.tanggalPengembalian);
             })
         }
 
@@ -296,7 +306,7 @@
         // tambah data
         function tambahData(){
             let data = {
-                idPeminjaman: idPeminjaman.value,
+                // idPeminjaman: idPeminjaman.value,
                 idBuku: idBuku.value,
                 nim: nim.value,
                 nama: nama.value,
@@ -307,16 +317,16 @@
 
             push(ref(database, 'mahasiswa'), data)
             .then(()=>{
-                idPeminjaman.value = '';
+                // idPeminjaman.value = '';
                 idBuku.value = '';
                 nim.value = '';
                 nama.value = '';
                 tanggalPeminjaman.value = '';
                 tanggalPengembalian.value = '';
-                alert('Buku berhasil diperpanjang');
+                alert('Buku berhasil dipinjam');
             })
             .catch((error)=>{
-                alert('Buku gagal diperpanjang');
+                alert('Buku gagal dipinjam');
             })
         }
 
@@ -341,44 +351,44 @@
             })
         }
         window.onload = getAllDataRealTime();
-// update data
-var submitEdit = document.getElementById('submitEdit');
-        submitEdit.onclick = function(){updateData(selectedKey)};
+// // update data
+// var submitEdit = document.getElementById('submitEdit');
+//         submitEdit.onclick = function(){updateData(selectedKey)};
         
-        function updateData(id){
-            let data = {
-                idPeminjaman: idPeminjamanEdit.value,
-                idBuku: idBukuEdit.value,
-                nim: nimEdit.value,
-                nama: namaEdit.value,
-                tanggalPeminjaman: tanggalPeminjamanEdit.value,
-                tanggalPengembalian: tanggalPengembalianEdit.value,
-            };
+//         function updateData(id){
+//             let data = {
+//                 // idPeminjaman: idPeminjamanEdit.value,
+//                 idBuku: idBukuEdit.value,
+//                 nim: nimEdit.value,
+//                 nama: namaEdit.value,
+//                 tanggalPeminjaman: tanggalPeminjamanEdit.value,
+//                 tanggalPengembalian: tanggalPengembalianEdit.value,
+//             };
 
 
-            update(ref(database, 'mahasiswa/'+id), data)
-            .then(()=>{
-                idPeminjamanEdit.value = '';
-                idBukuEdit.value = '';
-                namaEdit.value = '';
-                nimEdit.value = '';
-                tanggalPeminjamanEdit.value = '';
-                tanggalPengembalianEdit.value = '';
-                editModal.style.display = 'none'
-                alert('Buku berhasil dikembalikan');
-            })
-            .catch((error)=>{
-                alert('Buku gagal dikembalikan');
-            });
-        }
+//             update(ref(database, 'mahasiswa/'+id), data)
+//             .then(()=>{
+//                 // idPeminjamanEdit.value = '';
+//                 idBukuEdit.value = '';
+//                 namaEdit.value = '';
+//                 nimEdit.value = '';
+//                 tanggalPeminjamanEdit.value = '';
+//                 tanggalPengembalianEdit.value = '';
+//                 editModal.style.display = 'none'
+//                 alert('Buku berhasil dikembalikan');
+//             })
+//             .catch((error)=>{
+//                 alert('Buku gagal dikembalikan');
+//             });
+//         }
 // hapus data
         function hapusData(id){
             remove(ref(database, 'mahasiswa/'+id))
             .then(()=>{
-                alert('Data berhasil dihapus')
+                alert('Buku berhasil diserahkan')
             })
             .catch((error)=>{
-                alert('Data gagal dihapus');
+                alert('Buku gagal diserahkan');
             });
         }
   </script>
@@ -406,7 +416,6 @@ var submitEdit = document.getElementById('submitEdit');
             });
         });
     </script>
-    
     <!-- Footer -->
     <footer class="bg-white text-dark pt-5 pb-4">
         <div class="container text-center text-md-left">
