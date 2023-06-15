@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Pilkom Perpus</title>
+    <link rel="stylesheet" href="dtpeminjaman.css">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <style>
+    .putihBelakang{
+        background: whitesmoke;
+          height: 100px;
+          width: 100%;
+          margin-left: 280px;
+        
+      }
+
+      .konten-tbl {
+        overflow-y: auto;
+      }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header" style="border-radius: 30%; margin-top: 10px;border-color: black;border-inline-color: black;">
+                <h3 style="font-size:21px;">Sistem informasi</h3>
+                <h1 style="font-size:25px;">Pilkom Perpus</h1>
+                <h3 style="font-size:19px;">Pendidikan Komputer</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <!-- <li>
+                    <a href="contoh list.html">List buku</a>
+                </li> -->
+                <li>
+                    <a href="SIDEBARNEW.html" style="background-color:white; color:steelblue;">Tambah buku</a>
+                </li>
+                <li>
+                    <a href="pinjam.html">Data Peminjaman</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+            </nav>
+
+    
+
+    <!-- TAMBAH BUKU -->
+    <h1 style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIST BUKU</h1>
+    <div class="tambah-data">
+        <button class="btn" id="btnTambah">Tambah Data</button>
+    </div>  
+
+
+    <div class="konten-tbl" id="tabel">
+        <table id="tabel-main">
+            <thead>
+                <tr>
+                    <th id="buku">ID Buku</th>
+                    <th>Judul</th>
+                    <th>Penulis</th>
+                    <th>Tahun</th>
+                    <th>Penerbit</th>
+                    <th>Jumlah</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+
+            <div class="inputModal">
+                <h3 id="judulModal">Tambah Data</h3>
+                <table>
+                    <tr>
+                        <td><label for="judul">Judul</label></td>
+                        <td><input type="text" name="judul" id="judul"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="penulis">Penulis</label></td>
+                        <td><input type="text" name="penulis" id="penulis"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tahun">Tahun</label></td>
+                        <td><input type="text" name="tahun" id="tahun"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="penerbit">Penerbit</label></td>
+                        <td><input type="text" name="penerbit" id="penerbit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="jumlah">Jumlah</label></td>
+                        <td><input type="text" name="jumlah" id="jumlah"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="Submit" name="submit" id="submit" class="btn"></td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Edit Data -->
+    <div id="editModal" class="modal">
+
+
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+
+            <div class="inputModal">
+                <h3 id="judulModal">Tambah Data</h3>
+                <table>
+                    <tr>
+                        <td><label for="judul">Judul</label></td>
+                        <td><input type="text" name="judul" id="judulEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="penulis">Penulis</label></td>
+                        <td><input type="text" name="penulis" id="penulisEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tahun">Tahun</label></td>
+                        <td><input type="text" name="tahun" id="tahunEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="penerbit">Penerbit</label></td>
+                        <td><input type="text" name="penerbit" id="penerbitEdit"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="jumlah">Jumlah</label></td>
+                        <td><input type="text" name="jumlah" id="jumlahEdit"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="Submit" name="submit" id="submitEdit" class="btn"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="1jspeminjaman.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+        // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        import { getDatabase, ref, set, push, get, child, onValue, update, remove } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCLD4Rq2PaUh_pLjnkGcnyVcTwozC-8CXc",
+          authDomain: "nvya-cc520.firebaseapp.com",
+          projectId: "nvya-cc520",
+          storageBucket: "nvya-cc520.appspot.com",
+          messagingSenderId: "582129684783",
+          appId: "1:582129684783:web:7a958c60d316ed1f54d1da",
+          measurementId: "G-614SPW1CJL"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // inisialisasi tiap inputan
+        let judul= document.getElementById('judul');
+        let penulis = document.getElementById('penulis');
+        let tahun = document.getElementById('tahun');
+        let penerbit = document.getElementById('penerbit');
+        let jumlah = document.getElementById('jumlah');
+        var selectedKey;
+        var editModal = document.getElementById('editModal');
+
+
+        // kerangka isi tbody
+        var tbody = document.getElementById('data');
+        var no = 0;
+
+
+        function addItemToTable(key, judul, penulis, tahun, penerbit, jumlah){
+            let trow = document.createElement('tr');
+
+
+            let table =` 
+                        <td>${++no}</td>
+                        <td>${judul}</td>
+                        <td>${penulis}</td>
+                        <td>${tahun}</td>
+                        <td>${penerbit}</td>
+                        <td>${jumlah}</td>
+                `
+            
+            let td = document.createElement('td')
+
+
+            let btnEdit = document.createElement('button');
+            let t = document.createTextNode('Edit');
+            btnEdit.id = 'btnEdit';
+            btnEdit.classList.add('btn')
+            btnEdit.value = key
+            btnEdit.appendChild(t);
+            btnEdit.addEventListener('click', ()=>{
+                editModal.style.display = 'block';
+                selectedKey = btnEdit.value;
+            })
+            btnEdit.onclick = function(){showDataEdit(btnEdit.value)};
+            
+            let btnHapus = document.createElement('button');
+            t = document.createTextNode('Hapus');
+            btnHapus.id = 'btnHapus';
+            btnHapus.classList.add('btn')
+            btnHapus.value = key;
+            btnHapus.appendChild(t);
+            btnHapus.addEventListener('click', (key)=>{
+                hapusData(btnEdit.value)
+            })
+
+            // TOMBOL PINJAM
+let btnPinjam = document.createElement('button');
+let d = document.createTextNode('Pinjam');
+btnPinjam.id = 'btnPinjam';
+btnPinjam.classList.add('btn');
+btnPinjam.value = key;
+btnPinjam.appendChild(d);
+btnPinjam.addEventListener('click', () => {
+    window.location.href = 'pinjam.html';
+});
+
+
+            trow.innerHTML = table;
+            td.appendChild(btnEdit);
+            td.appendChild(btnHapus);
+            td.appendChild(btnPinjam);
+            trow.appendChild(td);
+
+
+            tbody.appendChild(trow);
+        }
+
+
+        function AddAllItemToTable(Mahasiswa){
+            no = 0;
+            tbody.innerHTML='';
+            Mahasiswa.forEach(element => {
+                addItemToTable(element.key, element.judul, element.penulis, element.tahun, element.penerbit, element.jumlah);
+            })
+        }
+
+
+        // tambah data
+        function tambahData(){
+            let data = {
+                judul: judul.value,
+                penulis: penulis.value,
+                tahun: tahun.value,
+                penerbit: penerbit.value,
+                jumlah: jumlah.value
+            };
+
+
+            push(ref(database, 'mahasiswa'), data)
+            .then(()=>{
+                judul.value = '';
+                penulis.value = '';
+                tahun.value = '';
+                penerbit.value = '';
+                jumlah.value = '';
+                alert('Data berhasil ditambahkan');
+            })
+            .catch((error)=>{
+                alert('Data gagal ditambahkan');
+            })
+        }
+
+
+        // assign button
+        document.getElementById('submit').addEventListener('click', tambahData);
+
+        // get data realtime
+        function getAllDataRealTime(){
+            const dbRef = ref(database, 'mahasiswa');
+            var tabel = document.getElementById('tabel');
+
+
+            onValue(dbRef, (snapshot)=>{
+                var mahasiswa = []
+                snapshot.forEach(childSnapshot =>{
+                    let temp = childSnapshot.val();
+                    temp['key'] = childSnapshot.key;
+                    mahasiswa.push(temp);
+                });
+            AddAllItemToTable(mahasiswa);
+            })
+        }
+        window.onload = getAllDataRealTime();
+
+        // update data
+        var submitEdit = document.getElementById('submitEdit');
+        submitEdit.onclick = function(){updateData(selectedKey)};
+        
+        function updateData(id){
+            let data = {
+                judul: judulEdit.value,
+                penulis: penulisEdit.value,
+                tahun: tahunEdit.value,
+                penerbit: penerbitEdit.value,
+                jumlah: jumlahEdit.value
+            };
+
+
+            update(ref(database, 'mahasiswa/'+id), data)
+            .then(()=>{
+                judulEdit.value = '';
+                penulisEdit.value = '';
+                tahunEdit.value = '';
+                penerbitEdit.value = '';
+                jumlahEdit.value = '';
+                editModal.style.display = 'none'
+                alert('Data berhasil diupdate');
+            })
+            .catch((error)=>{
+                alert('Data gagal ditambahkan');
+            });
+        }
+
+         // hapus data
+         function hapusData(id){
+            remove(ref(database, 'mahasiswa/'+id))
+            .then(()=>{
+                alert('Data berhasil dihapus')
+            })
+            .catch((error)=>{
+                alert('Data gagal dihapus');
+            });
+        }
+
+      </script>
+
+        </div>
+    </div>
+
+    
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-white text-dark pt-5 pb-4">
+        <div class="container text-center text-md-left">
+            <div class="row text-center text-md-left">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-dark">Pilkom Perpus</h5>
+                    <p>Pendidikan Komputer <br> Universitas Lambung Mangkurat <br>Kota Banjarmasin, Kalimantan Selatan</p>
+
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-dark">Site</h5>
+                <p>
+                    <a href="#" class="text-dark" style="text-decoration: none;">Home</a>
+                </p>
+                <p>
+                    <a href="#" class="text-dark" style="text-decoration: none;">About Us</a>
+                </p>
+                <p>
+                    <a href="#" class="text-dark" style="text-decoration: none;">Contact Us</a>
+                </p>
+        
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-dark">Community</h5>
+                <p>
+                    <a href="#" class="text-dark" style="text-decoration: none;">Blog</a>
+                </p>
+                <p>
+                    <a href="#" class="text-dark" style="text-decoration: none;">Article</a>
+                </p>
+                <p>
+                    <a href="#" class="text-dark" style="text-decoration: none;">FAQ</a>
+                </p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-dark">Contact Us</h5>
+                    <p>
+                       <i class="fas fa-home mr-3"></i>PILKOMPERPUS
+                    </p>
+                    <p>
+                        <i class="fas fa-phone mr-3"></i>+6281234567800
+                    </p>
+                     <p>
+                        <i class="fab fa-instagram mr-3"></i>PILKOM_PERPUS
+                    </p>
+                    <p>
+                        <i class="fab fa-twitter mr-3"></i>PILKOM_PERPUS
+                    </p>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p style="margin-left: 450px;">copyright @2023 ALL rights reserved by:
+                        <a href="#">
+                            <strong class="text-dark"> Pustakawan Team</strong>
+                        </a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
