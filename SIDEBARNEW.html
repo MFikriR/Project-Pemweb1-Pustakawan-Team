@@ -253,15 +253,16 @@
             })
 
             // TOMBOL PINJAM
-let btnPinjam = document.createElement('button');
-let d = document.createTextNode('Pinjam');
-btnPinjam.id = 'btnPinjam';
-btnPinjam.classList.add('btn');
-btnPinjam.value = key;
-btnPinjam.appendChild(d);
-btnPinjam.addEventListener('click', () => {
-    window.location.href = 'pinjam.html';
-});
+            let btnPinjam = document.createElement('button');
+            let d = document.createTextNode('Pinjam');
+            btnPinjam.id = 'btnPinjam';
+            btnPinjam.classList.add('btn');
+            btnPinjam.value = key;
+            btnPinjam.appendChild(d);
+            btnPinjam.addEventListener('click', () => {
+                
+                window.location.href = 'pinjam.html';
+            });
 
 
             trow.innerHTML = table;
