@@ -16,15 +16,29 @@
     <div class="pendidikanKomputer">Pendidikan Komputer</div>
     <div class="login">Login</div>
     <div class="nameUser"><input type="text" class="form-control" id="inputUser" placeholder="Username" style="height: 30px; width: 350px; padding-bottom: 5px;"></div>
-    <div class="password"><input type="password" class="form-control" id="inputPassword2" placeholder="Password" style="height: 30px; width: 350px; padding-bottom: 5px;" ></div>
+    <div class="password">
+      <input type="password" class="form-control" id="inputPassword2" placeholder="Password" style="height: 30px; width: 350px; padding-bottom: 5px;"><button onclick="togglePasswordVisibility()" class="button">Show Password</button>
+    </div>
+  
+    <script>
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("inputPassword2");
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    }
+    </script>
+    
     <div class="garis"></div>
-      <button class="log" onclick="openPopup()">Submit</button>
+    <a href="#" id="login"><a id ="sub_btn" class="btn" role="button"><button class="log" onclick="openPopup()">Submit</button></a></a>
       <div class="popup" id="popup">
-          <img src="404-tick.png">
+          <!-- <img src="404-tick.png">
           <h2>Thank You!</h2>
-          <p>Your details has been succcessfully submitted. Thanks!</p>
-          <a href="#" id="login"><a id ="sub_btn" class="btn btn-primary mt-4 d-grid gap-2 col-6 mx-auto text-light btnText1" role="button">OK</a></a>
-          <!-- <a href="#" id="login" type="button" onclick="closePopup()"><button id =sub_btn>OK</button></a> -->
+          <p>Your details has been succcessfully submitted. Thanks!</p>-->
+          <!-- <a href="#" id="login"><a id ="sub_btn" class="btn btn-primary mt-4 d-grid gap-2 col-6 mx-auto text-light btnText1" role="button">OK</a></a> -->
+           <!--<a href="#" id="login" type="button" onclick="closePopup()"><button id =sub_btn>OK</button></a> -->
       </div>
     <!-- <div><a href="sidebar.html" class="log" onclick="myFunction()">login</a></div> -->
     <div class="avatar">
@@ -34,9 +48,9 @@
 <script>
   let popup = document.getElementById("popup");
 
-    function openPopup(){
-    popup.classList.add("open-popup");
-}
+//     function openPopup(){
+//     popup.classList.add("open-popup");
+// }
 
 function closePopup(){
     popup.classList.remove("open-popup");
